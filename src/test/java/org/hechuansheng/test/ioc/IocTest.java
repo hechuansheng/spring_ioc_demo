@@ -1,5 +1,6 @@
 package org.hechuansheng.test.ioc;
 
+import org.hechuansheng.demo.ioc.MyApplication;
 import org.hechuansheng.demo.ioc.bean.Person;
 import org.hechuansheng.demo.ioc.config.MyConfig;
 import org.junit.Test;
@@ -13,6 +14,13 @@ import java.util.Map;
  * @date : 2021/4/18  16:11
  */
 public class IocTest {
+
+    @Test
+    public void componentScanTest() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyApplication.class);
+
+        printBeanDefinitionNames(context);
+    }
 
     @Test
     public void configurationTest() {
