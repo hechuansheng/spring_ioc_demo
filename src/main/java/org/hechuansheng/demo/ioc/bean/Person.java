@@ -2,7 +2,7 @@ package org.hechuansheng.demo.ioc.bean;
 
 /**
  * @author : hechuansheng
- * @description : TODO
+ * @description :
  * @date : 2021/4/18  16:11
  */
 public class Person {

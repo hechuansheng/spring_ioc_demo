@@ -1,8 +1,12 @@
 package org.hechuansheng.demo.ioc;
 
+import org.hechuansheng.demo.ioc.config.MyConfig;
+import org.hechuansheng.demo.ioc.controller.MyController;
 import org.hechuansheng.demo.ioc.filter.MyComponentScanFilter;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.Import;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +14,7 @@ import org.springframework.stereotype.Service;
  * useDefaultFilters = true 默认全部扫描
  * useDefaultFilters = false  默认全部不扫描
  * @author : hechuansheng
- * @description : ComponentScan方式注册组件
+ * @description : @ComponentScan方式注册组件
  * @date : 2021/4/18  16:46
  */
 @ComponentScan(basePackages="org.hechuansheng.demo.ioc", useDefaultFilters = true,

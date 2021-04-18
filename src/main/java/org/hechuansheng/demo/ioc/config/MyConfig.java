@@ -1,6 +1,7 @@
 package org.hechuansheng.demo.ioc.config;
 
 import org.hechuansheng.demo.ioc.bean.Address;
+import org.hechuansheng.demo.ioc.bean.MyFactoryBean;
 import org.hechuansheng.demo.ioc.bean.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,12 +20,13 @@ import org.springframework.context.annotation.Scope;
 public class MyConfig {
 
     @Bean("zhangsan")
+    @Scope("properly")
 //    @Autowired //可省略
     public Person person(
             @Autowired //可省略
-                     Address address) {
+                     Address guiyang) {
         Person zhangSan = new Person("张三", 22);
-        zhangSan.setAddress(address);
+        zhangSan.setAddress(guiyang);
         return zhangSan;
     }
 
@@ -34,5 +36,11 @@ public class MyConfig {
         address.setCity("guiyang");
         address.setCountry("China");
         return address;
+    }
+
+    @Bean
+    //获取bean的时候加&前缀获取MyFactoryBean本身
+    public MyFactoryBean factoryBean() {
+        return new MyFactoryBean();
     }
 }
