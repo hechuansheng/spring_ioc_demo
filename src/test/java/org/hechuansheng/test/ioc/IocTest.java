@@ -5,14 +5,13 @@ import org.hechuansheng.demo.ioc.MyApplication4TestImport;
 import org.hechuansheng.demo.ioc.bean.Car;
 import org.hechuansheng.demo.ioc.bean.Person;
 import org.hechuansheng.demo.ioc.bean.User;
-import org.hechuansheng.demo.ioc.config.Config4Autowired;
-import org.hechuansheng.demo.ioc.config.Config4LifeCycle;
-import org.hechuansheng.demo.ioc.config.Config4ValueBind;
-import org.hechuansheng.demo.ioc.config.MyConfig;
+import org.hechuansheng.demo.ioc.config.*;
 import org.hechuansheng.demo.ioc.controller.MyController;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -21,6 +20,23 @@ import java.util.Map;
  * @date : 2021/4/18  16:11
  */
 public class IocTest {
+
+    @Test
+    public void testProfile() {
+        //创建一个ApplicationContext
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+
+        //设置激活环境
+        ConfigurableEnvironment environment = context.getEnvironment();
+        environment.setActiveProfiles("dev", "test");
+
+        //注册主配置类
+        context.register(Config4Profile.class);
+        //启动容器
+        context.refresh();
+
+        printBeanDefinitionNames(context);
+    }
 
     @Test
     public void testAutowired() {
