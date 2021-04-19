@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Scope;
 public class MyConfig {
 
     @Bean("zhangsan")
-    @Scope("properly")
+    @Scope("prototype")
 //    @Autowired //可省略
     public Person person(
             @Autowired //可省略

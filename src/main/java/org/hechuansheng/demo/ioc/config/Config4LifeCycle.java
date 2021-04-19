@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class Config4LifeCycle {
 
-    @Bean(initMethod = "init", destroyMethod = "destroy")
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
     /* 单实例bean容器创建的时候执行初始化，容器关闭销毁bean
      * 多实例bean创建bean的时候执行初始化，容器不会销毁bean，需手动销毁
      */
