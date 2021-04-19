@@ -10,12 +10,13 @@ import javax.annotation.PreDestroy;
 
 /**
  * @author : hechuansheng
- * @description :
+ * @description : bean的生命周期
  * @date : 2021/4/18  21:33
  */
-public class Car implements InitializingBean, DisposableBean, BeanPostProcessor {
+public class Car implements InitializingBean, DisposableBean {
 
     public Car(String brand, double price) {
+        System.out.println("---------------------------------Car.construct......");
         this.brand = brand;
         this.price = price;
     }
@@ -46,19 +47,6 @@ public class Car implements InitializingBean, DisposableBean, BeanPostProcessor 
     @PostConstruct
     public void postConstruct() {
         System.out.println("---------------------------------Car.postConstruct......");
-    }
-
-    @Override
-    //todo
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("---------------------------------Car.postProcessBeforeInitialization......");
-        return bean;
-    }
-
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("---------------------------------Car.postProcessAfterInitialization......");
-        return bean;
     }
 
     private String brand;

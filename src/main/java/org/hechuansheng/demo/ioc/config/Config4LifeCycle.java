@@ -2,6 +2,7 @@ package org.hechuansheng.demo.ioc.config;
 
 import org.hechuansheng.demo.ioc.bean.Car;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Scope;
  * @date : 2021/4/18  21:32
  */
 @Configuration
+@ComponentScan("org.hechuansheng.demo.ioc.processor")
 public class Config4LifeCycle {
 
     @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
