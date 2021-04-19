@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
  * @date : 2021/4/18  16:14
  */
 @Repository
+//@Primary
 public class MyRepository {
 }
